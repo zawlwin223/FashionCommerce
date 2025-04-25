@@ -1,4 +1,4 @@
-import '../style/Linkbutton.css'
+import '../style/LinkButton.css'
 import LinkButton from './LinkButton'
 import { useRouteLoaderData } from 'react-router-dom'
 import { formatCurrency } from '../utils/currencyFormatter'
