@@ -1,0 +1,68 @@
+.service {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-block: 2rem;
+  .card {
+    padding-inline: 3rem;
+    padding-block: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    img {
+      width: 100px;
+    }
+    div {
+      margin-top: 1rem;
+    }
+
+    /* Specific colors for each service */
+    &:nth-child(1) p {
+      /* Free Shipping */
+      color: #0066cc; /* Blue */
+    }
+
+    &:nth-child(2) p {
+      /* Online Order */
+      color: #ff6b6b; /* Red */
+    }
+
+    &:nth-child(3) p {
+      /* Save Money */
+      color: #2ecc71; /* Green */
+    }
+
+    &:nth-child(4) p {
+      /* Promotions */
+      color: #f1c40f; /* Yellow/Gold */
+    }
+
+    &:nth-child(5) p {
+      /* Happy Sell */
+      color: #e056fd; /* Purple */
+    }
+
+    &:nth-child(6) p {
+      /* 24/7 Support */
+      color: #ff9f43; /* Orange */
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .service {
+    flex-wrap: wrap;
+    padding-inline: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .service {
+    flex-direction: column;
+    .card {
+      margin-bottom: 1rem;
+    }
+  }
+}

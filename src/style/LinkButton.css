@@ -1,0 +1,22 @@
+.link {
+  text-decoration: none;
+  margin-top: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding-block: 0.7rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  margin-left: 0 !important;
+  align-items: center;
+  text-decoration: none;
+}
+
+@media screen and (width<768px) {
+  .link {
+    width: 100% !important;
+  }
+}

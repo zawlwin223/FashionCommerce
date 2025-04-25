@@ -1,0 +1,117 @@
+.nav {
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding-block: 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-inline: 7rem;
+}
+
+.nav h3 {
+  display: flex;
+  align-items: flex-start;
+  color: var(--primary-color);
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.nav ul li {
+  margin: 0 1rem;
+  color: var(--text-color);
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--primary-color);
+  }
+
+  a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+}
+
+.nav ul li:last-child {
+  position: relative;
+
+  img {
+    width: 25px;
+    transition: filter 0.3s ease;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+
+  a:hover img {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(98%) saturate(1111%)
+      hue-rotate(183deg) brightness(91%) contrast(101%);
+  }
+
+  a.active img {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(98%) saturate(1111%)
+      hue-rotate(183deg) brightness(91%) contrast(101%);
+  }
+}
+
+.badge {
+  /* display: none; */
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 5px;
+  top: -18px;
+  right: -12px;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+button {
+  outline: none;
+  background: none;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    padding-inline: 1rem;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .nav {
+    padding-inline: 3rem;
+  }
+}

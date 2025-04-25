@@ -1,0 +1,121 @@
+.shop_page {
+  width: 100%;
+  background-color: var(--background-color);
+  /* display: none; */
+  padding-bottom: 2rem;
+
+  .items {
+    padding-top: 7rem;
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    gap: 20px;
+    padding-inline: 7rem;
+
+    .item_card {
+      padding-top: 1rem;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* align-items: center; */
+
+      .shop_img {
+        width: 100px;
+        /* max-width: 200px; */
+        height: auto; /* Set a fixed height */
+        object-fit: cover;
+        margin-inline: auto;
+        /* text-align: center; Ensures images fill the space nicely */
+      }
+      .lazy_loaded_img {
+        width: 100px !important;
+        height: 100px !important;
+        margin-inline: auto;
+        /* height: auto; */
+      }
+
+      .detail {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: 1rem;
+
+        h3 {
+          margin: 0.5rem 0;
+        }
+
+        p {
+          color: var(--text-secondary-color);
+        }
+
+        /* a {
+          text-decoration: none;
+          margin-top: 0.5rem;
+          background-color: var(--primary-color);
+          color: white;
+          border: none;
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        } */
+      }
+    }
+  }
+  .pagnination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    button {
+      border: none;
+      outline: none;
+      color: var(--text-secondary-color);
+      font-size: 1.5rem;
+      font-weight: 600;
+      /* background: transparent; */
+      transition: all 0.3s ease;
+      cursor: pointer;
+      padding: 0.5rem;
+      background: white;
+    }
+    .pagni_number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .active {
+      color: var(--primary-color);
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .shop_page {
+    .items {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .shop_page {
+    .items {
+      grid-template-columns: repeat(2, 1fr);
+      padding-inline: 1.5rem;
+    }
+  }
+}
