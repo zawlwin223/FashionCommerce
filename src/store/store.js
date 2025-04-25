@@ -26,7 +26,7 @@ const saveCartToLocalStorage = (cartState) => {
 
 const preloadedCartState = {
   cart: {
-    items: loadCartFromLocalStorage(),
+    items: loadCartFromLocalStorage() ?? [],
     isCartOpen: false,
   },
 }

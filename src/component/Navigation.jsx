@@ -7,7 +7,9 @@ import { useSelector } from 'react-redux'
 export default function Navigation() {
   const dispatch = useDispatch()
   const cartItems = useSelector((state) => state.cart.items)
-  const itemsQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0)
+  const itemsQuantity = Array.isArray(cartItems)
+    ? cartItems.reduce((acc, item) => acc + item.quantity, 0)
+    : 0
   const openCartHandle = function () {
     dispatch(openCart())
   }
