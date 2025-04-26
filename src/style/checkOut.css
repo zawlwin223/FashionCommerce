@@ -69,6 +69,8 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: thin;
 }
 
 .modal-left form {
@@ -78,8 +80,6 @@
   flex-grow: 1; /* Allow form to expand and take remaining space */
   justify-content: flex-start;
   margin-top: 2rem;
-  overflow-y: scroll;
-  scrollbar-width: thin; /* For Firefox */
 }
 
 .modal-left input {
@@ -173,7 +173,9 @@
   .modal-right {
     width: 100%; /* Take full width */
   }
-
+  .modal-right {
+    height: 70vh;
+  }
   .checkout-summary {
     flex-direction: column; /* Stack total amount and button vertically */
     align-items: flex-start;

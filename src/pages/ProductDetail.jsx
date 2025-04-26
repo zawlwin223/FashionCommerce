@@ -116,7 +116,6 @@ export default function ProductDetail() {
             <p>{product.description}</p>
           </article>
         </section>
-        )
       </>
     )
   }

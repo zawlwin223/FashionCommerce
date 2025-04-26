@@ -112,6 +112,6 @@ button {
 
 @media screen and (max-width: 1300px) {
   .nav {
-    padding-inline: 3rem;
+    padding-inline: 2rem;
   }
 }
