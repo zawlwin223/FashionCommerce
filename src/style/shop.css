@@ -4,8 +4,31 @@
   /* display: none; */
   padding-bottom: 2rem;
 
+  .search_container {
+    padding-top: 130px;
+    display: flex;
+    padding-inline: 7rem;
+    justify-content: end;
+  }
+
+  .search_input {
+    height: 30px;
+    padding-inline-start: 10px;
+    margin-right: 1rem;
+  }
+
+  .search_category {
+    padding-inline: 10px;
+    height: 30px;
+  }
+
+  .search-error_message {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
   .items {
-    padding-top: 7rem;
+    padding-top: 2rem;
 
     width: 100%;
     display: grid;
@@ -55,21 +78,6 @@
         p {
           color: var(--text-secondary-color);
         }
-
-        /* a {
-          text-decoration: none;
-          margin-top: 0.5rem;
-          background-color: var(--primary-color);
-          color: white;
-          border: none;
-          padding: 0.5rem 1rem;
-          cursor: pointer;
-          border-radius: 4px;
-          transition: all 0.3s ease;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        } */
       }
     }
   }
@@ -116,6 +124,13 @@
     .items {
       grid-template-columns: repeat(2, 1fr);
       padding-inline: 1.5rem;
+    }
+
+    .search_container {
+      /* padding-top: 130px;
+      display: flex;
+      padding-inline: 7rem; */
+      justify-content: center;
     }
   }
 }

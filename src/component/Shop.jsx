@@ -3,6 +3,8 @@ import Products from './Products'
 import Pagination from './Pagination'
 import { calcPagination } from '../utils/calcPagination'
 import { useState } from 'react'
+import Filter from './Filter'
+import Search from './Search'
 
 import Loader from './Loader'
 
@@ -13,7 +15,9 @@ import ErrorModal from './ErrorModal'
 
 export default function Shop() {
   const [currentPage, setCurrentPage] = useState(1)
+  const [searchProducts, setSearchProducts] = useState(null)
 
+  //fetching data
   const {
     data: products,
     isLoading,
@@ -28,25 +32,65 @@ export default function Shop() {
     refetchOnMount: false,
   })
 
-  console.log(isError, error)
+  //pagination button
+  const nextPage = () => setCurrentPage((page) => page + 1)
+  const prevPage = () => setCurrentPage((page) => page - 1)
+  const switchPage = (page) => setCurrentPage(page)
+
+  //search by title
+  const handleSearch = (search) => {
+    console.log(products)
+    const filteredProducts = products.filter((product) =>
+      product.title.toLowerCase().includes(search.toLowerCase())
+    )
+    if (filteredProducts.length === 0) {
+      setSearchProducts([])
+      return
+    }
+    setSearchProducts(filteredProducts)
+  }
+
+  //search by category
+  const handleFilter = (category) => {
+    const filteredProducts =
+      category === ''
+        ? products
+        : products.filter((product) => product.category === category)
+
+    setSearchProducts(filteredProducts)
+  }
+
+  const filteredLists = searchProducts ?? products
 
   if (isError) {
     const errorMessage = error?.message
     return <ErrorModal title="Error" message={errorMessage}></ErrorModal>
   }
 
-  const nextPage = () => setCurrentPage((page) => page + 1)
-  const prevPage = () => setCurrentPage((page) => page - 1)
-  const switchPage = (page) => setCurrentPage(page)
+  if (isLoading) {
+    return <Loader></Loader>
+  }
 
   if (products) {
-    const { totalPages, data } = calcPagination(products, 8, currentPage)
-    console.log(data)
+    const { totalPages, data: paginatedProducts } = calcPagination(
+      filteredLists,
+      8,
+      currentPage
+    )
+
     return (
       <section className="shop_page">
         <div>
+          <div className="search_container">
+            <Search search={handleSearch}></Search>
+            <Filter products={products} filter={handleFilter}></Filter>
+          </div>
+          {Array.isArray(searchProducts) && searchProducts.length === 0 && (
+            <p className="search-error_message">No Products Found</p>
+          )}
+
           <div className="items">
-            <Products products={data} />
+            <Products products={paginatedProducts} />
           </div>
           <Pagination
             currentPage={currentPage}
@@ -58,10 +102,6 @@ export default function Shop() {
         </div>
       </section>
     )
-  }
-
-  if (isLoading) {
-    return <Loader></Loader>
   }
 
   return null
