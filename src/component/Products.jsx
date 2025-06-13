@@ -10,7 +10,7 @@ export default function Products({ products }) {
       {products.map((product) => {
         return (
           <div key={product.id} className="item_card">
-            <img src={product.image} alt="" className="shop_img" />
+            <img src={product.image.url} alt="" className="shop_img" />
             <div className="detail">
               <h3>{product.title}</h3>
               <p>{formatCurrency(product.price)}</p>

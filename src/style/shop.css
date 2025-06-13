@@ -55,7 +55,8 @@
         /* max-width: 200px; */
         height: auto; /* Set a fixed height */
         object-fit: cover;
-        margin-inline: auto;
+        margin-left: 10px;
+        /* margin-inline: auto; */
         /* text-align: center; Ensures images fill the space nicely */
       }
       .lazy_loaded_img {

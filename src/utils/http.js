@@ -1,4 +1,6 @@
 import { QueryClient } from '@tanstack/react-query'
+import { db } from '../../firebase'
+import { collection, getDoc, doc, getDocs } from 'firebase/firestore'
 
 export const queryClient = new QueryClient()
 export async function fetchProducts({ signal, id = null }) {
@@ -56,5 +58,42 @@ export async function sendOrder({ order }) {
   } catch (error) {
     console.log(error)
     throw new Error('Failed to send order')
+  }
+}
+
+// import { doc, getDoc, collection, getDocs } from 'firebase/firestore'
+
+export async function fetchProductsFromFB({ signal, id = null }) {
+  if (signal.aborted) {
+    throw new Error('Fetch aborted')
+  }
+
+  try {
+    if (id !== null) {
+      console.log('Fetching product with ID:', id)
+      const docRef = doc(db, 'products', id)
+      const docSnap = await getDoc(docRef)
+
+      if (docSnap.exists()) {
+        // Return single product as an object (not array)
+        console.log(docSnap)
+        return { id: docSnap.id, ...docSnap.data() }
+      } else {
+        // No such document found
+        console.log('No such document!')
+        return null
+      }
+    } else {
+      // Fetch all products
+      const querySnapshot = await getDocs(collection(db, 'products'))
+      const products = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      return products
+    }
+  } catch (error) {
+    console.error('Error fetching products:', error)
+    throw new Error('Failed to fetch products from Firestore')
   }
 }

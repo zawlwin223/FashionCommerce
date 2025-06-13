@@ -8,9 +8,10 @@ import { useQuery } from '@tanstack/react-query'
 import { fetchProducts } from '../utils/http'
 import Loader from '../component/Loader'
 import ErrorModal from '../component/ErrorModal'
+import { fetchProductsFromFB } from '../utils/http'
 export default function ProductDetail() {
-  const id = Number(useParams().id)
-
+  const id = useParams().id
+  console.log(id)
   //search product by id
   let {
     data: product,
@@ -19,7 +20,7 @@ export default function ProductDetail() {
     error,
   } = useQuery({
     queryKey: ['product', id],
-    queryFn: ({ signal }) => fetchProducts({ signal, id }),
+    queryFn: ({ signal }) => fetchProductsFromFB({ signal, id }),
     staleTime: Infinity, // Keeps data always fresh (never stale)
     cacheTime: Infinity, // Keeps data in cache until page reload
     refetchOnWindowFocus: false,
@@ -60,14 +61,15 @@ export default function ProductDetail() {
   }
 
   if (product) {
-    product = product[0]
+    console.log(product)
+    // product = product[0]
     return (
       <>
         (
         <section className="detail_page">
           <div className="image_part">
             <img
-              src={product.image}
+              src={product.image.url}
               alt=""
               loading="lazy"
               className="detail_img"

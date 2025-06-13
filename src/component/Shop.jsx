@@ -3,6 +3,7 @@ import Products from './Products'
 import Pagination from './Pagination'
 import { calcPagination } from '../utils/calcPagination'
 import { useState } from 'react'
+import { fetchProductsFromFB } from '../utils/http'
 import Filter from './Filter'
 import Search from './Search'
 
@@ -25,7 +26,7 @@ export default function Shop() {
     error,
   } = useQuery({
     queryKey: ['products'],
-    queryFn: ({ signal }) => fetchProducts({ signal }),
+    queryFn: ({ signal }) => fetchProductsFromFB({ signal }),
     staleTime: Infinity, // Keeps data always fresh (never stale)
     cacheTime: Infinity, // Keeps data in cache until page reload
     refetchOnWindowFocus: false,
