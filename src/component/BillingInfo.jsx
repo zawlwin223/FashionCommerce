@@ -65,6 +65,7 @@ export default function BillingInfo() {
       customer,
       items: cartItems,
       totalPrice: formatCurrency(totalPrice),
+      date: new Date().toISOString().split('T')[0],
     }
 
     mutate({ order })

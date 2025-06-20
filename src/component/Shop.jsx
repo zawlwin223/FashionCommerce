@@ -28,9 +28,9 @@ export default function Shop() {
     queryKey: ['products'],
     queryFn: ({ signal }) => fetchProductsFromFB({ signal }),
     staleTime: Infinity, // Keeps data always fresh (never stale)
-    cacheTime: Infinity, // Keeps data in cache until page reload
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
+    refetchInterval: 5000,
+    // refetchOnWindowFocus: false,
+    // refetchOnMount: false,
   })
 
   //pagination button
