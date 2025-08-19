@@ -25,14 +25,14 @@
 }
 @layer default {
   :root {
-    --primary-color: #008080;
+    --primary-color: black;
     --secondary-color: #ff69b4;
     --text-color: #131212;
     --text-secondary-color: #696969;
     --star-color: #ffd700;
     --background-color: #f0f8f7;
     --background-secondary-color: #140337;
-    --primary-color-dark: #088178dd;
+    --primary-color-dark: #000000dd;
   }
   body {
     font-family: 'Roboto', 'Helvetica Neue', sans-serif;

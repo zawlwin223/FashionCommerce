@@ -17,7 +17,7 @@ export default function Layout() {
     <>
       <Navigation></Navigation>
       <Outlet></Outlet>
-      <SignUp></SignUp>
+      {/* <SignUp></SignUp> */}
       <Contact></Contact>
 
       {/* {isCheckOut && <CheckOut></CheckOut>} */}
