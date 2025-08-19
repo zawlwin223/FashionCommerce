@@ -38,10 +38,10 @@ export default function Contact() {
           <h3>Install App</h3>
           <p>From App Store or Google Play</p>
         </div>
+        <footer className="footer">
+          <p>&copy 2024 Zaw Lwin Phyo's Fashion Commerce</p>
+        </footer>
       </section>
-      <footer className="footer">
-        <p>&copy 2024 Zaw Lwin Phyo's Fashion Commerce</p>
-      </footer>
     </>
   )
 }
