@@ -27,7 +27,7 @@ export default function Shop() {
   } = useQuery({
     queryKey: ['products'],
     queryFn: ({ signal }) => fetchProductsFromFB({ signal }),
-    staleTime: Infinity, // Keeps data always fresh (never stale)
+    staleTime: 5000, // Keeps data always fresh (never stale)
     refetchInterval: 5000,
     // refetchOnWindowFocus: false,
     // refetchOnMount: false,

@@ -21,7 +21,7 @@ export default function ProductDetail() {
   } = useQuery({
     queryKey: ['product', id],
     queryFn: ({ signal }) => fetchProductsFromFB({ signal, id }),
-    staleTime: Infinity, // Keeps data always fresh (never stale)
+    staleTime: 5000, // Keeps data always fresh (never stale)
     cacheTime: Infinity, // Keeps data in cache until page reload
     refetchOnWindowFocus: false,
     refetchOnMount: false,
@@ -61,7 +61,7 @@ export default function ProductDetail() {
   }
 
   if (product) {
-    console.log(product)
+    const productSize = product.size.split(',')
     // product = product[0]
     return (
       <>
@@ -89,10 +89,9 @@ export default function ProductDetail() {
               onChange={(event) => changeSize(event.target.value)}
               value={size}
               className="size">
-              <option value="M">M</option>
-              <option value="S">S</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
+              {productSize.map((size) => {
+                return <option value={size}>{size}</option>
+              })}
             </select>
             <div>
               {/* Quantity selecion */}

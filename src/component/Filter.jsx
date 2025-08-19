@@ -1,6 +1,9 @@
 export default function Filter({ products, filter }) {
-  const categories = products.map((product) => product.category)
+  const categories = products.map((product) => product.category.toLowerCase())
+  console.log(categories)
+
   const uniqueCategories = [...new Set(categories)]
+  console.log(uniqueCategories)
 
   return (
     <>
