@@ -56,7 +56,9 @@ export default function Shop() {
     const filteredProducts =
       category === ''
         ? products
-        : products.filter((product) => product.category === category)
+        : products.filter(
+            (product) => product.category.toLowerCase() === category
+          )
 
     setSearchProducts(filteredProducts)
   }
