@@ -2,9 +2,14 @@
   background-color: var(--primary-color);
   color: white;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   padding-top: 2rem;
   padding-inline: 7rem;
+  .contact_info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
   .address {
     display: flex;
     flex-direction: column;
@@ -48,15 +53,21 @@
 }
 @media screen and (max-width: 1300px) {
   .contact {
-    flex-wrap: wrap;
     padding-inline: 3rem;
+  }
+  .contact_info {
+    flex-wrap: wrap;
+    /* padding-inline: 3rem; */
   }
 }
 
 @media screen and (max-width: 768px) {
   .contact {
-    flex-wrap: wrap;
     padding-inline: 1rem;
+  }
+  .contact_info {
+    flex-wrap: wrap;
+    /* padding-inline: 1rem; */
     & > * {
       margin-bottom: 1.5rem;
     }
