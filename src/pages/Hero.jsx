@@ -9,6 +9,7 @@ import image4 from '../img/pngwingWomanFashion.png'
 import LinkButton from '../component/LinkButton'
 
 import Slider from 'react-slick'
+
 export default function Hero() {
   const settings = {
     dots: true,
@@ -20,82 +21,86 @@ export default function Hero() {
     autoplay: true,
     autoplaySpeed: 4000,
   }
+
   return (
     <section className="hero">
       <Slider {...settings}>
+        {/* Slide 1 */}
         <div>
           <div className="hero_slider">
             <div>
-              <p>Trad-in-off</p>
+              <p>New Season</p>
               <h1>
-                Super value deals <br />
-                On all products
+                Summer Collection <br />
+                Fresh & Stylish
               </h1>
-              <p>Save more with coupon &70 % off</p>
-
+              <p>Discover the latest arrivals</p>
               <LinkButton path="/shop" halfWidth={true}>
                 Go To Shop
               </LinkButton>
             </div>
             <div>
-              <img src={image1} alt="" className="hero_img" />
+              <img src={image1} alt="Summer Collection" className="hero_img" />
             </div>
           </div>
         </div>
+
+        {/* Slide 2 */}
         <div>
           <div className="hero_slider">
             <div>
-              <p>Trad-in-off</p>
+              <p>Men’s Fashion</p>
               <h1>
-                Super value deals <br />
-                On all products
+                Modern Styles <br />
+                Everyday Wear
               </h1>
-              <p>Save more with coupon &70 % off</p>
-
+              <p>Elevate your wardrobe with ease</p>
               <LinkButton path="/shop" halfWidth={true}>
                 Go To Shop
               </LinkButton>
             </div>
             <div>
-              <img src={image2} className="hero_img" alt="" />
+              <img src={image2} className="hero_img" alt="Men's Fashion" />
             </div>
           </div>
         </div>
+
+        {/* Slide 3 */}
         <div>
           <div className="hero_slider">
             <div>
-              <p>Trad-in-off</p>
+              <p>Classic Look</p>
               <h1>
-                Super value deals <br />
-                On all products
+                Timeless Outfits <br />
+                For Every Occasion
               </h1>
-              <p>Save more with coupon &70 % off</p>
-
+              <p>Style that never goes out of trend</p>
               <LinkButton path="/shop" halfWidth={true}>
                 Go To Shop
               </LinkButton>
             </div>
             <div>
-              <img src={image3} className="hero_img" alt="" />
+              <img src={image3} className="hero_img" alt="Classic Style" />
             </div>
           </div>
         </div>
+
+        {/* Slide 4 */}
         <div>
           <div className="hero_slider">
             <div>
-              <p>Trad-in-off</p>
+              <p>Women’s Fashion</p>
               <h1>
-                Super value deals <br />
-                On all products
+                Bold & Elegant <br />
+                Everyday Looks
               </h1>
-              <p>Save more with coupon &70 % off</p>
-
+              <p>Find your perfect style today</p>
               <LinkButton path="/shop" halfWidth={true}>
                 Go To Shop
               </LinkButton>
             </div>
             <div>
-              <img src={image4} className="hero_img" alt="" />
+              <img src={image4} className="hero_img" alt="Women's Fashion" />
             </div>
           </div>
         </div>
