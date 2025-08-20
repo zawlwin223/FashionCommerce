@@ -29,7 +29,7 @@ export default function Hero() {
         <div>
           <div className="hero_slider">
             <div>
-              <p>New Season</p>
+              <p className="highlight1">New Season</p>
               <h1>
                 Summer Collection <br />
                 Fresh & Stylish
