@@ -1,75 +1,100 @@
 .hero {
   width: 100%;
-  /* height: 0vh; */
+  height: 100vh; /* full viewport height */
   padding-top: 7rem;
   background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.slider {
+  height: 100%; /* make slider take full hero height */
 }
 
 .hero_slider {
   width: 100%;
+  height: 100%;
   display: flex;
+  flex: 1;
   flex-direction: row-reverse;
   justify-content: space-between;
-  background-color: var(--background-color);
-  align-items: center;
+  align-items: stretch; /* make children same height */
 }
 
-.hero_slider > :first-child {
+/* Text block */
+.hero_text {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  h1 {
-    font-size: 4rem;
-    margin-block: 1.2rem;
-  }
-  a {
-    text-decoration: none;
-    margin-top: 1rem;
-    margin-left: 2rem;
-  }
+  justify-content: center; /* vertical center */
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
-.hero_slider > :nth-child(2) {
+/* Headings and text spacing */
+.hero_text h1 {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.hero_text p {
+  margin: 0.5rem 0;
+}
+
+.hero_text .hero_button {
+  margin-top: auto; /* button always at bottom */
+}
+
+/* Image block */
+.hero_img_wrapper {
   flex: 1;
   display: flex;
-  height: 100%;
-  align-items: flex-end;
-  /* margin-left: 100px; */
-  .hero_img {
-    width: 100%;
-    max-width: 450px; /* Adjust size for desktop */
-    height: 500px; /* Force same height */
-    object-fit: contain; /* keep image proportion without stretching */
-    display: block;
-    margin: 0 auto;
-  }
+  justify-content: center;
+  align-items: center; /* image centered vertically */
 }
 
-@media screen and (max-width: 1100px) {
-  h1 {
-    font-size: 2.5rem !important;
-  }
+.hero_img {
+  width: 100%;
+  max-width: 450px;
+  height: 600px; /* scale naturally */
+  object-fit: contain;
+  margin: 0 auto;
 }
 
+/* ------- Responsive -------- */
 @media screen and (max-width: 768px) {
   .hero_slider {
     flex-direction: column-reverse;
+  }
+
+  .hero_text {
+    padding: 1rem;
+    text-align: center;
+    justify-content: flex-end;
+    height: auto; /* remove fixed height */
+  }
+
+  .hero_img_wrapper {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .hero_img {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .hero {
+    height: auto; /* allow natural height instead of fixed vh */
     min-height: 100vh;
   }
 
-  h1 {
-    font-size: 5rem !important;
-    @media screen and (max-width: 540px) {
-      font-size: 2.5rem !important;
-    }
+  .hero_text {
+    text-align: left;
   }
-  .hero_slider > :first-child {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 500px !important;
-    padding-top: 0;
-    padding-bottom: 1rem;
+
+  .hero_img {
+    height: 400px;
   }
 }

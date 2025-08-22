@@ -7,8 +7,34 @@ import image2 from '../img/pngwingFahionBoy.png'
 import image3 from '../img/pngwingMan1.png'
 import image4 from '../img/pngwingWomanFashion.png'
 import LinkButton from '../component/LinkButton'
-
 import Slider from 'react-slick'
+
+const heroText = [
+  {
+    title: 'New Season',
+    mainText: 'Summer Collection<br/>Fresh & Stylish',
+    subText: 'Discover the latest arrivals',
+    img: image1,
+  },
+  {
+    title: 'Men’s Fashion',
+    mainText: 'Modern Styles<br/>Everyday Wear',
+    subText: 'Elevate your wardrobe with ease',
+    img: image2,
+  },
+  {
+    title: 'Classic Look',
+    mainText: 'Timeless Outfits<br/>For Every Occasion',
+    subText: 'Style that never goes out of trend',
+    img: image3,
+  },
+  {
+    title: 'Women’s Fashion',
+    mainText: 'Bold & Elegant<br/>Everyday Looks',
+    subText: 'Find your perfect style today',
+    img: image4,
+  },
+]
 
 export default function Hero() {
   const settings = {
@@ -24,86 +50,31 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      <Slider {...settings}>
-        {/* Slide 1 */}
-        <div>
-          <div className="hero_slider">
-            <div>
-              <p className="highlight1">New Season</p>
-              <h1>
-                Summer Collection <br />
-                Fresh & Stylish
-              </h1>
-              <p>Discover the latest arrivals</p>
-              <LinkButton path="/shop" halfWidth={true}>
-                Go To Shop
-              </LinkButton>
-            </div>
-            <div>
-              <img src={image1} alt="Summer Collection" className="hero_img" />
-            </div>
-          </div>
-        </div>
-
-        {/* Slide 2 */}
-        <div>
-          <div className="hero_slider">
-            <div>
-              <p>Men’s Fashion</p>
-              <h1>
-                Modern Styles <br />
-                Everyday Wear
-              </h1>
-              <p>Elevate your wardrobe with ease</p>
-              <LinkButton path="/shop" halfWidth={true}>
-                Go To Shop
-              </LinkButton>
-            </div>
-            <div>
-              <img src={image2} className="hero_img" alt="Men's Fashion" />
+      <Slider {...settings} className="slider">
+        {heroText.map((data, idx) => (
+          <div key={idx}>
+            <div className="hero_slider">
+              <div className="hero_text">
+                <p>{data.title}</p>
+                <h1 dangerouslySetInnerHTML={{ __html: data.mainText }} />
+                <p>{data.subText}</p>
+                <LinkButton
+                  path="/shop"
+                  halfWidth={true}
+                  className="hero_button">
+                  Go To Shop
+                </LinkButton>
+              </div>
+              <div className="hero_img_wrapper">
+                <img
+                  src={data.img}
+                  className="hero_img"
+                  alt={`Slide ${idx + 1}`}
+                />
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Slide 3 */}
-        <div>
-          <div className="hero_slider">
-            <div>
-              <p>Classic Look</p>
-              <h1>
-                Timeless Outfits <br />
-                For Every Occasion
-              </h1>
-              <p>Style that never goes out of trend</p>
-              <LinkButton path="/shop" halfWidth={true}>
-                Go To Shop
-              </LinkButton>
-            </div>
-            <div>
-              <img src={image3} className="hero_img" alt="Classic Style" />
-            </div>
-          </div>
-        </div>
-
-        {/* Slide 4 */}
-        <div>
-          <div className="hero_slider">
-            <div>
-              <p>Women’s Fashion</p>
-              <h1>
-                Bold & Elegant <br />
-                Everyday Looks
-              </h1>
-              <p>Find your perfect style today</p>
-              <LinkButton path="/shop" halfWidth={true}>
-                Go To Shop
-              </LinkButton>
-            </div>
-            <div>
-              <img src={image4} className="hero_img" alt="Women's Fashion" />
-            </div>
-          </div>
-        </div>
+        ))}
       </Slider>
     </section>
   )
